@@ -44,7 +44,7 @@ myApp.controller('listctrl', function($scope, $compile,$rootScope,$routeParams) 
         }
 
     };
-$scope.itemclicked=function(elem){
+$scope.itemclicked=function(elem){  /// ng-if is needed since it will not be displayed on the dome
     elem.clicked=!elem.clicked;
 
 }
