@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="examapp">
+
+<base href="/">
+<script src="../angular1/angular1.6.4.js"></script>
+<script src="../angular1/angular-route.js"></script>
+<script src="../angular1/main.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact List</title>
+
+</head>
+<script type="text/ng-template"  id="subtree.html">
+
+    <button class="btnclass"  ng-click="itemclicked(data)" >
+        {{data.name}}
+    </button>
+
+    <ul ng-if="data.clicked" >
+        <li class="nodisplay" ng-repeat="data in data.contacts" ng-include="'subtree.html'" ></li>
+    </ul>
+</script>
+<style>
+
+    .btnclass{
+        background: transparent; border: none; font-size: larger; width: 100%; text-align: left;
+    }
+    .nodisplay{
+        list-style: none;
+    }
+</style>
+<body>
+<h1>Contact Tree</h1>
+<ul ng-app="examapp" ng-controller="listctrl" class="nodisplay">
+    <li class="nodisplay" ng-repeat="data in contact" ng-include="'subtree.html'"></li>
+</ul>
+
+</body>
+</html>
